@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Validado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex align-items-center justify-content-center">
+  
+    <form id="loginForm" method="post" action="/login">
+        
+        <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+        <div id="correoError" class="alert alert-danger" style="display: none;">
+          El campo de correo no puede estar vacío
+        </div>
+        <div id="correoFormatoError" class="alert alert-danger" style="display: none;">
+          El formato del correo electrónico es incorrecto
+        </div>
+        <div id="passError" class="alert alert-danger" style="display: none;">
+          El campo de contraseña no puede estar vacío
+        </div>
+        
+        <div class="form-floating mb-2">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="correo" >
+          <label for="floatingInput">Correo electronico</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+    
+       
+        <button id="loginButton" class="btn btn-primary w-100 py-2" type="submit">Iniciar sesión</button>
+
+        <div id="loading" class="spinner-border text-center my-2 " style="display: none;" role="status">
+          <span class="visually-hidden">Validando...</span>
+    
+        </div>
+      </form>
+    
+
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      <script src="index.js"></script>
+</body>
+</html>
