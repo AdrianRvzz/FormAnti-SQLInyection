@@ -10,13 +10,12 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.get('/', (req, res) => res.sendFile("index.html"))
 
 
-
 app.post('/login', (req, res) => {
     const correoUser = req.body["correo"];
     const contraUser = req.body["pass"];
   
-    if (contieneCaracteresNoDeseados(correoUser) ) {
-      return res.status(400).send('<h1>El correo  contiene caracteres no permitidos.</h1>');
+    if (!validarCorreo(correoUser) || contieneCaracteresNoDeseados(correoUser)) {
+      return res.status(400).send('<h1>El correo no es válido o contiene caracteres no permitidos.</h1>');
     }
   
     setTimeout(() => {
@@ -34,7 +33,11 @@ app.post('/login', (req, res) => {
     return false;
   }
   
-
+  function validarCorreo(correo) {
+    // Expresión regular para validar el formato de correo electrónico.
+    const correoRegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return correoRegExp.test(correo);
+  }
 
 
 
